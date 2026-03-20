@@ -5,70 +5,66 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Giao lưu kết bạn - FQA</title>
     <style>
-        /* CSS Reset & Cơ bản */
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-        body { background-color: #f8f9fa; color: #333; }
+        :root { --fqa-orange: #FF6A00; --fqa-bg: #FFF5EE; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+        body { background-color: var(--fqa-bg); }
 
-        /* Header giả lập */
-        header { background: #fff; padding: 10px 5%; border-bottom: 1px solid #e0e0e0; display: flex; align-items: center; justify-content: space-between; }
-        .logo { color: #007bff; font-weight: bold; font-size: 24px; }
+        /* Header */
+        header { background: #fff; padding: 15px 8%; display: flex; align-items: center; justify-content: space-between; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+        .logo { color: var(--fqa-orange); font-weight: 800; font-size: 26px; letter-spacing: -1px; }
+        .search-bar { background: #f0f0f0; padding: 8px 20px; border-radius: 25px; width: 40%; color: #999; font-size: 14px; }
 
-        /* Banner xanh đặc trưng */
-        .banner { background: linear-gradient(90deg, #007bff, #00c6ff); color: white; padding: 40px 5%; text-align: left; }
-        .banner h1 { font-size: 28px; margin-bottom: 10px; }
+        /* Banner Cam FQA */
+        .banner { background: var(--fqa-orange); color: white; padding: 50px 8%; position: relative; overflow: hidden; }
+        .banner h1 { font-size: 32px; font-weight: 700; margin-bottom: 8px; }
+        .banner p { opacity: 0.9; font-size: 16px; }
 
-        /* Bộ lọc */
-        .filters { padding: 20px 5%; display: flex; gap: 10px; flex-wrap: wrap; }
-        .filter-item { background: white; padding: 8px 15px; border-radius: 20px; border: 1px solid #ddd; cursor: pointer; font-size: 14px; }
-        .filter-item.active { background: #007bff; color: white; border-color: #007bff; }
+        /* Bộ lọc Filter */
+        .filters { padding: 25px 8% 10px; display: flex; gap: 12px; overflow-x: auto; }
+        .filter-btn { background: white; border: 1px solid #eee; padding: 10px 22px; border-radius: 30px; font-weight: 600; cursor: pointer; color: #555; transition: 0.2s; white-space: nowrap; }
+        .filter-btn.active { background: var(--fqa-orange); color: white; border-color: var(--fqa-orange); }
 
-        /* Danh sách người dùng (Grid) */
-        .user-grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); 
-            gap: 20px; padding: 0 5% 50px; 
-        }
-        .user-card { 
-            background: white; border-radius: 12px; padding: 20px; text-align: center;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05); border: 1px solid #eee;
-        }
-        .avatar { width: 80px; height: 80px; border-radius: 50%; background: #ddd; margin: 0 auto 10px; overflow: hidden; }
-        .avatar img { width: 100%; height: 100%; object-fit: cover; }
-        .user-name { font-weight: bold; font-size: 16px; margin-bottom: 5px; }
-        .user-info { color: #777; font-size: 13px; margin-bottom: 15px; }
-        .btn-connect { 
-            background: #eef5ff; color: #007bff; border: none; 
-            padding: 8px 20px; border-radius: 20px; font-weight: bold; cursor: pointer; width: 100%;
-        }
+        /* Grid người dùng */
+        .user-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 25px; padding: 20px 8% 60px; }
+        .user-card { background: white; border-radius: 16px; padding: 24px; text-align: center; border: 1px solid #f0f0f0; transition: transform 0.3s; }
+        .user-card:hover { transform: translateY(-8px); box-shadow: 0 12px 30px rgba(255, 106, 0, 0.15); }
+        
+        .avatar-box { width: 90px; height: 90px; border: 3px solid var(--fqa-orange); border-radius: 50%; margin: 0 auto 15px; padding: 3px; }
+        .avatar-box img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; background: #eee; }
+        
+        .name { font-weight: 700; font-size: 18px; color: #222; margin-bottom: 4px; }
+        .grade { color: var(--fqa-orange); font-weight: 600; font-size: 14px; margin-bottom: 18px; }
+        
+        .btn-action { background: var(--fqa-orange); color: white; border: none; padding: 12px; border-radius: 12px; width: 100%; font-weight: 700; cursor: pointer; box-shadow: 0 4px 15px rgba(255, 106, 0, 0.3); }
     </style>
 </head>
 <body>
-
     <header>
         <div class="logo">FQA</div>
-        <div style="color: #666;">Tìm kiếm...</div>
+        <div class="search-bar">Tìm kiếm bạn bè, câu hỏi...</div>
+        <div style="width: 40px; height: 40px; background: #eee; border-radius: 50%;"></div>
     </header>
 
     <div class="banner">
         <h1>Giao lưu kết bạn</h1>
-        <p>Kết nối với hàng triệu học sinh trên cả nước</p>
+        <p>Tìm kiếm đồng đội cùng học tập và chia sẻ kiến thức</p>
     </div>
 
     <div class="filters">
-        <div class="filter-item active">Tất cả</div>
-        <div class="filter-item">Lớp 12</div>
-        <div class="filter-item">Môn Toán</div>
-        <div class="filter-item">Hà Nội</div>
+        <button class="filter-btn active">Tất cả</button>
+        <button class="filter-btn">Lớp 12</button>
+        <button class="filter-btn">Lớp 11</button>
+        <button class="filter-btn">Toán học</button>
+        <button class="filter-btn">Lập trình</button>
     </div>
 
     <div class="user-grid">
         <div class="user-card">
-            <div class="avatar"><img src="https://via.placeholder.com/80" alt="User"></div>
-            <div class="user-name">Người dùng FQA</div>
-            <div class="user-info">Lớp 12 • 0 câu hỏi</div>
-            <button class="btn-connect">Giao lưu</button>
+            <div class="avatar-box"><img src="https://api.dicebear.com/7.x/avataaars/svg?seed=SayHi" alt="User"></div>
+            <div class="name">SayHi</div>
+            <div class="grade">Lớp 12 • Lập trình viên</div>
+            <button class="btn-action">Kết bạn ngay</button>
         </div>
         </div>
-
 </body>
 </html>
