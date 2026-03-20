@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giao lưu kết bạn - FQA</title>
+    <style>
+        /* CSS Reset & Cơ bản */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { background-color: #f8f9fa; color: #333; }
+
+        /* Header giả lập */
+        header { background: #fff; padding: 10px 5%; border-bottom: 1px solid #e0e0e0; display: flex; align-items: center; justify-content: space-between; }
+        .logo { color: #007bff; font-weight: bold; font-size: 24px; }
+
+        /* Banner xanh đặc trưng */
+        .banner { background: linear-gradient(90deg, #007bff, #00c6ff); color: white; padding: 40px 5%; text-align: left; }
+        .banner h1 { font-size: 28px; margin-bottom: 10px; }
+
+        /* Bộ lọc */
+        .filters { padding: 20px 5%; display: flex; gap: 10px; flex-wrap: wrap; }
+        .filter-item { background: white; padding: 8px 15px; border-radius: 20px; border: 1px solid #ddd; cursor: pointer; font-size: 14px; }
+        .filter-item.active { background: #007bff; color: white; border-color: #007bff; }
+
+        /* Danh sách người dùng (Grid) */
+        .user-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); 
+            gap: 20px; padding: 0 5% 50px; 
+        }
+        .user-card { 
+            background: white; border-radius: 12px; padding: 20px; text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05); border: 1px solid #eee;
+        }
+        .avatar { width: 80px; height: 80px; border-radius: 50%; background: #ddd; margin: 0 auto 10px; overflow: hidden; }
+        .avatar img { width: 100%; height: 100%; object-fit: cover; }
+        .user-name { font-weight: bold; font-size: 16px; margin-bottom: 5px; }
+        .user-info { color: #777; font-size: 13px; margin-bottom: 15px; }
+        .btn-connect { 
+            background: #eef5ff; color: #007bff; border: none; 
+            padding: 8px 20px; border-radius: 20px; font-weight: bold; cursor: pointer; width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">FQA</div>
+        <div style="color: #666;">Tìm kiếm...</div>
+    </header>
+
+    <div class="banner">
+        <h1>Giao lưu kết bạn</h1>
+        <p>Kết nối với hàng triệu học sinh trên cả nước</p>
+    </div>
+
+    <div class="filters">
+        <div class="filter-item active">Tất cả</div>
+        <div class="filter-item">Lớp 12</div>
+        <div class="filter-item">Môn Toán</div>
+        <div class="filter-item">Hà Nội</div>
+    </div>
+
+    <div class="user-grid">
+        <div class="user-card">
+            <div class="avatar"><img src="https://via.placeholder.com/80" alt="User"></div>
+            <div class="user-name">Người dùng FQA</div>
+            <div class="user-info">Lớp 12 • 0 câu hỏi</div>
+            <button class="btn-connect">Giao lưu</button>
+        </div>
+        </div>
+
+</body>
+</html>
